@@ -1,7 +1,30 @@
 <script>
     export default { 
-        // Add Code Here to complete the task
-        // Note: DO NOT USE "eval()". In security, "eval" is considered "evil"!!!
+        data() {
+            return { 
+                x: 0, 
+                y: 0, 
+                lastResult: 0,
+                operators: ["+", "-", "*", "/", "%"],
+                selectedOp: "+"
+            }
+        },
+        computed: {
+            result() {
+                if (this.selectedOp == "+")
+                    this.lastResult = this.x + this.y;
+                else if (this.selectedOp == "-")
+                    this.lastResult = this.x - this.y;
+                else if (this.selectedOp == "*")
+                    this.lastResult = this.x * this.y;
+                else if (this.selectedOp == "/")
+                    this.lastResult = this.x / this.y;
+                else if (this.selectedOp == "%")
+                    this.lastResult = this.x % this.y;
+
+                return this.lastResult;
+            }
+        }
     }
 </script>
 
@@ -20,5 +43,4 @@
 <style scoped>
     p, input { font-family: monospace; }
     p { white-space: pre; }
-
 </style>
